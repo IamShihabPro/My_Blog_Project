@@ -5,6 +5,7 @@ from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from App_Login.forms import SignUpForm, UserProfileChange, ProfilePic
 
+
 # Create your views here.
 
 # Sign up...........
