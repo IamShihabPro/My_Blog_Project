@@ -12,14 +12,27 @@
         <h2>Posted by: @{{blog.author}}</h2>
         <h2>Published On: {{blog.publish_date}}</h2>
         <i> <h6>Update On: {{blog.update_date}}</h6> </i>
+
+        <h6>{{blog.liked_blog.count}} Liked | {{blog.blog_comment.count}} Comments</h6>
     </div>
 
     <div class="col-sm-6">
         <img src="/media/{{blog.blog_image}}" width="100%" alt="">
     </div>
     <p>{{blog.blog_content|linebreaks}}</p>
+    <hr>
 </div>
+
+    {% if not liked %}
+    <a href="{% url "liked_post" pk=blog.pk %}"> <i class="fa fa-far fa-thumbs-o-up" aria-hidden="true"></i> </a>
+    {% else %}
+    <a href="{% url "unliked_post" pk=blog.pk %}"> <i class="fa fa-far fa-thumbs-o-down" aria-hidden="true"></i> </a>
+    {% endif %}
+
+    {% comment %} <h6>{{blog.liked_blog.count}} Liked | {{blog.blog_comment.count}} Comments</h6> {% endcomment %}
 <hr>
+
+
 <div class="row">
     <div class="col-sm-6">
        
